@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/MsBuild/2003">
+
+  <UsingTask TaskName="CssCompressorTask" AssemblyFile="Tools\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <UsingTask TaskName="JavaScriptCompressorTask" AssemblyFile="Tools\Yahoo.Yui.Compressor.Build.MsBuild.dll"/>
+
+
+  <!-- 
+      ****************************************************************************************************************************************
+      ******  Please refer to the official documentation for the full list of options: http://yuicompressor.codeplex.com/documentation  ******  
+      ****************************************************************************************************************************************
+  -->
+
+
+
+  <Target Name="Minify">
+
+    <ItemGroup>
+      <!-- Single files, listed in order of dependency -->
+      <JavaScriptFiles Include="jsrsasign\base64.js"/>
+      <JavaScriptFiles Include="Util\base64string.js"/>
+
+      <JavaScriptFiles Include="jsrsasign\jsbn.js"/>
+      <JavaScriptFiles Include="jsrsasign\jsbn2.js"/>
+      <JavaScriptFiles Include="jsrsasign\rsa.js"/>
+      <JavaScriptFiles Include="jsrsasign\rsa2.js"/>
+
+      <JavaScriptFiles Include="jsrsasign\sha1.js"/>
+      <JavaScriptFiles Include="jsrsasign\sha256.js"/>
+      <JavaScriptFiles Include="jsrsasign\sha512.js"/>
+      <JavaScriptFiles Include="jsrsasign\md5.js"/>
+      <JavaScriptFiles Include="jsrsasign\ripemd160.js"/>
+      <JavaScriptFiles Include="jsrsasign\base64.js"/>
+
+      <JavaScriptFiles Include="jsrsasign\rsapem-1.1.js"/>
+      <JavaScriptFiles Include="jsrsasign\rsasign-1.2.js"/>
+      <JavaScriptFiles Include="jsrsasign\asn1hex-1.1.js"/>
+      <JavaScriptFiles Include="jsrsasign\x509-1.1.js"/>
+      <JavaScriptFiles Include="jsrsasign\rsa-xml-ma.js"/>
+
+    </ItemGroup>
+
+    <!--<CssCompressorTask
+          SourceFiles="@(CssFiles)"
+          OutputFile="..\..\..\..\Content\Minified.css"
+       />-->
+
+    <JavaScriptCompressorTask
+          SourceFiles="@(JavaScriptFiles)"
+          OutputFile="crmlicensing.lib.min.js"
+       />
+
+    <JavaScriptCompressorTask
+      SourceFiles="@(JavaScriptFiles);AutoCheckLicense.js"
+      OutputFile="crmlicensing.lib.auto.min.js"
+       />
+
+    <Copy
+      SourceFiles="crmlicensing.lib.min.js"
+      DestinationFolder="..\CrmLicensing.CrmPackageByKey\WebResources\JavaScript"
+      SkipUnchangedFiles="true" 
+      />
+
+    <Copy
+  SourceFiles="crmlicensing.lib.auto.min.js"
+  DestinationFolder="..\CrmLicensing.CrmPackageByKey\WebResources\JavaScript"
+  SkipUnchangedFiles="true" 
+   />
+
+
+  </Target>
+</Project>

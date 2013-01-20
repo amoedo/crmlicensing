@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
+  <Solutions>
+    <Solution Assembly="CRM Solution Licensing.CrmLicensing.CrmPackageByKey.Plugins.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database">
+      <PluginTypes>
+        <Plugin Description="Plug-in to PreAccountCreate" FriendlyName="PreAccountCreate" Name="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate" Id="00000000-0000-0000-0000-000000000000" TypeName="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate">
+          <Steps>
+            <clear />
+            <Step CustomConfiguration="" Name="PreAccountCreate" Description="Pre-Operation of Account Create" Id="00000000-0000-0000-0000-000000000000" MessageName="Create" Mode="Synchronous" PrimaryEntityName="account" Rank="1" SecureConfiguration="" Stage="PreInsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+      </PluginTypes>
+    </Solution>
+  </Solutions>
+  <XamlWorkflows />
+</Register>
