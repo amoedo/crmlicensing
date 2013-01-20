@@ -16,6 +16,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.JavaScript", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByKey.Plugins", "CrmLicensing.CrmPackageByKey.Plugins\CrmLicensing.CrmPackageByKey.Plugins.csproj", "{D57661BB-65E2-4832-8550-D02AC2AF29CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM Solution Packages", "CRM Solution Packages", "{0B913F57-FDAC-47BE-99C9-8AA22097828E}"
+	ProjectSection(SolutionItems) = preProject
+		CRM Solution Packages\CrmLicensingByKey_1_0_0_0.zip = CRM Solution Packages\CrmLicensingByKey_1_0_0_0.zip
+		CRM Solution Packages\CrmLicensingByKey_1_0_0_0_managed.zip = CRM Solution Packages\CrmLicensingByKey_1_0_0_0_managed.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 7

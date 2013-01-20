@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LicensedPlugin.cs" />
     <Compile Include="Licensing\LicenseChecker.cs" />
     <Compile Include="PreAccountCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

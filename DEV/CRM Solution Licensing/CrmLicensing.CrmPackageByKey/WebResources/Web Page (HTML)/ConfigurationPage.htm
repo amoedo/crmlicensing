@@ -75,7 +75,7 @@
                 },
                 success: function (data, textStatus, XmlHttpRequest) {
                     Message.value = "License Saved";
-                    LicenseKeyId.value = data.d.WebResourceId;
+                    if (data.d) LicenseKeyId.value = data.d.WebResourceId;
                     PublishLicense();
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace CrmLicensing.CrmPackageByKey.Plugins
+namespace CrmLicensing.CrmPackageByKey.Plugins.Licensing
 {
     class LicenseChecker
     {
@@ -17,7 +17,7 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
 
         public static bool CheckLicense(IOrganizationService service, string orgName)
         {
-            QueryByAttribute query = new QueryByAttribute("WebResource");
+            QueryByAttribute query = new QueryByAttribute("webresource");
             query.AddAttributeValue("name", string.Format("{0}/{1}.lic", Prefix, orgName));
             query.ColumnSet = new ColumnSet("content");
 
@@ -26,7 +26,7 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
                 var result = service.RetrieveMultiple(query).Entities.First();
                 var xmlLicense = DecodeFrom64((string)result["content"]);
                 XmlDocument doc = new XmlDocument();
-                doc.LoadXml(xmllicense);
+                doc.LoadXml(xmlLicense);
                 var lic = doc.GetElementsByTagName("license")[0].InnerText;
 
                 var csp = new RSACryptoServiceProvider();

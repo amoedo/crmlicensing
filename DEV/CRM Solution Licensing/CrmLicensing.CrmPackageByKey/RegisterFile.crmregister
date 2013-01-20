@@ -1,12 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
   <Solutions>
-    <Solution Assembly="CRM Solution Licensing.CrmLicensing.CrmPackageByKey.Plugins.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database">
+    <Solution Assembly="CRM Solution Licensing.CrmLicensing.CrmPackageByKey.Plugins.dll" Id="14e288fd-2963-e211-b541-d48564519c0d" IsolationMode="Sandbox" SourceType="Database">
       <PluginTypes>
-        <Plugin Description="Plug-in to PreAccountCreate" FriendlyName="PreAccountCreate" Name="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate" Id="00000000-0000-0000-0000-000000000000" TypeName="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate">
+        <Plugin Description="Plug-in to PreAccountCreate" FriendlyName="PreAccountCreate" Name="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate" Id="17e288fd-2963-e211-b541-d48564519c0d" TypeName="CrmLicensing.CrmPackageByKey.Plugins.PreAccountCreate">
           <Steps>
             <clear />
-            <Step CustomConfiguration="" Name="PreAccountCreate" Description="Pre-Operation of Account Create" Id="00000000-0000-0000-0000-000000000000" MessageName="Create" Mode="Synchronous" PrimaryEntityName="account" Rank="1" SecureConfiguration="" Stage="PreInsideTransaction" SupportedDeployment="ServerOnly">
+            <Step CustomConfiguration="" Name="PreAccountCreate" Description="Pre-Operation of Account Create" Id="18e288fd-2963-e211-b541-d48564519c0d" MessageName="Create" Mode="Synchronous" PrimaryEntityName="account" Rank="1" SecureConfiguration="" Stage="PreInsideTransaction" SupportedDeployment="ServerOnly">
               <Images />
             </Step>
           </Steps>

@@ -14,11 +14,12 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
     using System.ServiceModel;
     using Microsoft.Xrm.Sdk;
     using CrmLicensing.CrmPackageByKey.Plugins.Licensing;
+    using CrmLicensing.CrmPackageByKey.Plugins.eu.europa.ec;
 
     /// <summary>
     /// PreAccountCreate Plugin.
     /// </summary>    
-    public class PreAccountCreate: Plugin
+    public class PreAccountCreate: LicensedPlugin
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PreAccountCreate"/> class.
@@ -71,13 +72,7 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
                 return;
             }
 
-            ///////  Check for License ///////////////
-            if (!LicenseChecker.CheckLicense(localContext.OrganizationService,localContext.PluginExecutionContext.OrganizationName))
-            {
-                localContext.Trace(String.Format("Not valid License Found for Org:{0}",localContext.PluginExecutionContext.OrganizationName));
-                throw new InvalidPluginExecutionException("Not Valid License found for VatChecker solution");
-            }
-            //////////////////////////////////////////
+            DoLicenseCheck(localContext); //License Check
 
 
             localContext.Trace("Retrieving VAT id from params");
@@ -94,8 +89,15 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
             vat = vat.Substring(2);
 
             string name, address;
-
-            svc.checkVat(ref country, ref vat, out result, out name, out address);
+            try
+            {
+                svc.checkVat(ref country, ref vat, out result, out name, out address);
+            }
+            catch(Exception e)
+            {
+                localContext.Trace(string.Format("Exception when retrieve VAT Check {0}", e.Message));
+                throw new InvalidPluginExecutionException("Error checking VAT number, make sure the format is correct with the country code at the begining or try again later", e);
+            }
 
             localContext.Trace("Web Service Call returned");
             localContext.Trace(string.Format("Result is {0}", result.ToString()));
@@ -121,5 +123,7 @@ namespace CrmLicensing.CrmPackageByKey.Plugins
 
             }
         }
+
+
     }
 }
