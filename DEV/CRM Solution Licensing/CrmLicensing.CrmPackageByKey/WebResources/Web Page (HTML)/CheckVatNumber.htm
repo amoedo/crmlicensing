@@ -28,15 +28,6 @@
     <script type="text/javascript">
 
         function CheckVat() {
-            //var name = "";
-            //var address = "";
-
-            //if (CLBK.VatChecker.checkVat(Country.value, VatNumber.value, name, address)) {
-            //    Results.value = name + "\n Address:\n" + address;
-            //}
-            //else {
-            //    Results.value = "Not found";
-            //}
 
             $.ajax({
                 url: 'http://ec.europa.eu/taxation_customs/vies/vatResponse.html?memberStateCode=' + encodeURIComponent(Country.value) + '&number='+ encodeURIComponent(VatNumber.value),

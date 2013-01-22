@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.Generator", "CrmLicensing.Generator\CrmLicensing.Generator.csproj", "{87AEC556-941B-4C29-ADAA-C84A0F28A973}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CrmLicensing.LicenseWall", "CrmLicensing.LicenseWall\CrmLicensing.LicenseWall.ccproj", "{3449BBAC-2B53-4285-9341-43B228A0EF17}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMLicensing.LicenseWall.Web", "CRMLicensing.LicenseWall.Web\CRMLicensing.LicenseWall.Web.csproj", "{4531FECE-9D8B-4B2A-BFFE-19FB76F09DFE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByKey", "CrmLicensing.CrmPackageByKey\CrmLicensing.CrmPackageByKey.csproj", "{1711B05C-6E64-471E-AA51-534BC220F179}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D57661BB-65E2-4832-8550-D02AC2AF29CB} = {D57661BB-65E2-4832-8550-D02AC2AF29CB}
@@ -24,28 +20,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM Solution Packages", "CR
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = CrmLicensing.LicenseWall\\CrmLicensing.LicenseWall.ccproj
-		SccProjectName1 = CrmLicensing.LicenseWall
-		SccLocalPath1 = CrmLicensing.LicenseWall
-		SccProjectUniqueName2 = CRMLicensing.LicenseWall.Web\\CRMLicensing.LicenseWall.Web.csproj
-		SccProjectName2 = CRMLicensing.LicenseWall.Web
-		SccLocalPath2 = CRMLicensing.LicenseWall.Web
-		SccProjectUniqueName3 = CrmLicensing.Generator\\CrmLicensing.Generator.csproj
-		SccProjectName3 = CrmLicensing.Generator
-		SccLocalPath3 = CrmLicensing.Generator
-		SccProjectUniqueName4 = CrmLicensing.CrmPackageByKey\\CrmLicensing.CrmPackageByKey.csproj
-		SccProjectName4 = CrmLicensing.CrmPackageByKey
-		SccLocalPath4 = CrmLicensing.CrmPackageByKey
-		SccProjectUniqueName5 = CrmLicensing.JavaScript\\CrmLicensing.JavaScript.csproj
-		SccProjectName5 = CrmLicensing.JavaScript
-		SccLocalPath5 = CrmLicensing.JavaScript
-		SccProjectUniqueName6 = CrmLicensing.CrmPackageByKey.Plugins\\CrmLicensing.CrmPackageByKey.Plugins.csproj
-		SccProjectName6 = CrmLicensing.CrmPackageByKey.Plugins
-		SccLocalPath6 = CrmLicensing.CrmPackageByKey.Plugins
+		SccProjectUniqueName1 = CrmLicensing.Generator\\CrmLicensing.Generator.csproj
+		SccProjectName1 = CrmLicensing.Generator
+		SccLocalPath1 = CrmLicensing.Generator
+		SccProjectUniqueName2 = CrmLicensing.CrmPackageByKey\\CrmLicensing.CrmPackageByKey.csproj
+		SccProjectName2 = CrmLicensing.CrmPackageByKey
+		SccLocalPath2 = CrmLicensing.CrmPackageByKey
+		SccProjectUniqueName3 = CrmLicensing.JavaScript\\CrmLicensing.JavaScript.csproj
+		SccProjectName3 = CrmLicensing.JavaScript
+		SccLocalPath3 = CrmLicensing.JavaScript
+		SccProjectUniqueName4 = CrmLicensing.CrmPackageByKey.Plugins\\CrmLicensing.CrmPackageByKey.Plugins.csproj
+		SccProjectName4 = CrmLicensing.CrmPackageByKey.Plugins
+		SccLocalPath4 = CrmLicensing.CrmPackageByKey.Plugins
 	EndGlobalSection
 	GlobalSection(CRMSolutionProperties) = preSolution
 		SolutionIsBoundToCRM = True
@@ -59,14 +49,6 @@ Global
 		{87AEC556-941B-4C29-ADAA-C84A0F28A973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AEC556-941B-4C29-ADAA-C84A0F28A973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AEC556-941B-4C29-ADAA-C84A0F28A973}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3449BBAC-2B53-4285-9341-43B228A0EF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3449BBAC-2B53-4285-9341-43B228A0EF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3449BBAC-2B53-4285-9341-43B228A0EF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3449BBAC-2B53-4285-9341-43B228A0EF17}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4531FECE-9D8B-4B2A-BFFE-19FB76F09DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4531FECE-9D8B-4B2A-BFFE-19FB76F09DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4531FECE-9D8B-4B2A-BFFE-19FB76F09DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4531FECE-9D8B-4B2A-BFFE-19FB76F09DFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1711B05C-6E64-471E-AA51-534BC220F179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1711B05C-6E64-471E-AA51-534BC220F179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1711B05C-6E64-471E-AA51-534BC220F179}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
