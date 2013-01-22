@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/MsBuild/2003">
+
+  <UsingTask TaskName="CssCompressorTask" AssemblyFile="Tools\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <UsingTask TaskName="JavaScriptCompressorTask" AssemblyFile="Tools\Yahoo.Yui.Compressor.Build.MsBuild.dll"/>
+
+
+  <!-- 
+      ****************************************************************************************************************************************
+      ******  Please refer to the official documentation for the full list of options: http://yuicompressor.codeplex.com/documentation  ******  
+      ****************************************************************************************************************************************
+  -->
+
+
+
+  <Target Name="Minify">
+
+    <ItemGroup>
+      <!--Single files, listed in order of dependency-->
+      <JavaScriptFiles Include="BaseWallUrl.js"/>
+      <JavaScriptFiles Include="crmlicensing.lib.js"/>
+
+
+    </ItemGroup>
+
+    <!--<CssCompressorTask
+          SourceFiles="@(CssFiles)"
+          OutputFile="..\..\..\..\Content\Minified.css"
+       />-->
+
+    <JavaScriptCompressorTask
+          SourceFiles="@(JavaScriptFiles)"
+          OutputFile="crmlicensing.lib.min.js"
+       />
+
+    <Copy
+      SourceFiles="crmlicensing.lib.min.js"
+      DestinationFolder="..\CrmLicensing.CrmPackageByWall\WebResources\Script (JScript)"
+      />
+
+
+  </Target>
+</Project>
