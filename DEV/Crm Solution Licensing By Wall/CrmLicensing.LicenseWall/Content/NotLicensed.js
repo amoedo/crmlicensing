@@ -1,0 +1,1 @@
+﻿alert("You organisation has not been authorised\n Please contact the solution publisher.");

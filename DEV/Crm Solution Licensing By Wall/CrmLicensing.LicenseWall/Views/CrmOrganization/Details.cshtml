@@ -1,0 +1,22 @@
+﻿@model CrmLicensing.LicenseWall.Models.CrmOrganization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CrmOrganization</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrganizationName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrganizationName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
