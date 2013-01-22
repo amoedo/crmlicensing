@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Check European Union VAT</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(233, 237, 241);
+            font-family: 'Segoe UI',Arial;
+        }
+
+        table {
+            margin: 5px;
+            width: 100%;
+        }
+
+        .label {
+            width: 343px;
+        }
+    </style>
+
+    <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="../Scripts/jquery_1.7.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/json2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.xdomain.ajax.js" type="text/javascript"></script>
+    <script src="../Scripts/crmlicensing.lib.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // loadResource(Solution,Resource,ResourceType)
+        CLBW.LicensedResource.loadResource("VatChecker", "vatchecker.lib.js", "js");
+    </script>
+
+</head>
+<body>
+    <h2>European Union VAT Checker</h2>
+    <table>
+        <tr>
+            <td class="label">Country Code</td>
+            <td>
+                <input type="text" name="Country" /></td>
+        </tr>
+        <tr>
+            <td class="label">VAT Number</td>
+            <td>
+                <input type="text" name="VatNumber" /></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Check" onclick="CLBW.VatChecker.CheckVat(Results);" /></td>
+            <td></td>
+        </tr>
+
+    </table>
+    <div id="Results">
+
+    </div>
+</body>
+</html>
