@@ -2,14 +2,19 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByWall", "CrmLicensing.CrmPackageByWall\CrmLicensing.CrmPackageByWall.csproj", "{FCA6E00A-4DE8-43A6-B71E-277A10CE7037}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12} = {ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.JavaScript", "CrmLicensing.JavaScript\CrmLicensing.JavaScript.csproj", "{5239CB1D-E543-4620-84B7-C155FBEA1C17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.LicenseWall", "CrmLicensing.LicenseWall\CrmLicensing.LicenseWall.csproj", "{1E11BEA4-71F5-4B6F-8414-F57287289C93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByWall.Plugins", "CrmLicensing.CrmPackageByWall.Plugins\CrmLicensing.CrmPackageByWall.Plugins.csproj", "{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
 		SccLocalPath0 = .
@@ -22,6 +27,9 @@ Global
 		SccProjectUniqueName3 = CrmLicensing.LicenseWall\\CrmLicensing.LicenseWall.csproj
 		SccProjectName3 = CrmLicensing.LicenseWall
 		SccLocalPath3 = CrmLicensing.LicenseWall
+		SccProjectUniqueName4 = CrmLicensing.CrmPackageByWall.Plugins\\CrmLicensing.CrmPackageByWall.Plugins.csproj
+		SccProjectName4 = CrmLicensing.CrmPackageByWall.Plugins
+		SccLocalPath4 = CrmLicensing.CrmPackageByWall.Plugins
 	EndGlobalSection
 	GlobalSection(CRMSolutionProperties) = preSolution
 		SolutionIsBoundToCRM = True
@@ -45,6 +53,10 @@ Global
 		{1E11BEA4-71F5-4B6F-8414-F57287289C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E11BEA4-71F5-4B6F-8414-F57287289C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E11BEA4-71F5-4B6F-8414-F57287289C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

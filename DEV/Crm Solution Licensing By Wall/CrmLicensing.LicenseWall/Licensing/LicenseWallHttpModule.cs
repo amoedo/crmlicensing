@@ -53,7 +53,7 @@ namespace CrmLicensing.LicenseWall.Licensing
                 }
                 else
                 {
-                    context.Response.Redirect("Content/NotLicensed.js", true);
+                    context.Response.Redirect("/Content/NotLicensed.js", true);
                 }
             }
 

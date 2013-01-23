@@ -249,6 +249,7 @@
     <Content Include="CrmSolutions\VatChecker\vatchecker.lib.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="CrmSolutions\VatChecker\plugin.tag.js" />
     <None Include="Properties\PublishProfiles\crmlicensingdemo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\crmlicensingdemo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
