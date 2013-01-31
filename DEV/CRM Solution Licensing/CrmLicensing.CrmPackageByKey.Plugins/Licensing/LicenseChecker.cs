@@ -27,20 +27,53 @@ namespace CrmLicensing.CrmPackageByKey.Plugins.Licensing
                 var xmlLicense = DecodeFrom64((string)result["content"]);
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xmlLicense);
-                var lic = doc.GetElementsByTagName("license")[0].InnerText;
+                var lic = doc.GetElementsByTagName("payload")[0].InnerText;
+                var sig = doc.GetElementsByTagName("signature")[0].InnerText;
 
                 var csp = new RSACryptoServiceProvider();
                 csp.FromXmlString(PublicKey);
 
                 if (csp.VerifyData(
-                    System.Text.Encoding.UTF8.GetBytes(orgName.ToCharArray(), 0, orgName.Length) // We check agains the orgname
+                    System.Text.Encoding.UTF8.GetBytes(lic.ToCharArray(), 0, lic.Length) // We check agains the orgname
                     , "SHA256"
-                    , Convert.FromBase64String(lic)))
+                    , Convert.FromBase64String(sig)))
                 {
-                    return true;
+                    //Check orgname
+                    var parts = lic.Split(':');
+                    if (parts[0] != orgName)
+                    {
+                        //Not valid org
+                        return false;
+                    }
+                    else
+                    {
+                        //Check trial
+                        if (parts[1] == "1")
+                        {
+                            var date = parts[2].Split('/');
+                            var expiry = new DateTime(int.Parse(date[2]),int.Parse(date[1]),int.Parse(date[0]));
+                            if (expiry < DateTime.Now)
+                            {
+                                //Expired trial
+                                return false;
+                            }
+                            else
+                            {
+                                //Valid trial
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            //Valid full license
+                            return true;
+                        }
+
+                    }                    
                 }
                 else
                 {
+                    //Signature not valid
                     return false;
                 }
             }

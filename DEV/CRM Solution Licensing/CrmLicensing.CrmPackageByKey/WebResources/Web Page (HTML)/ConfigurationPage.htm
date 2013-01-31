@@ -55,7 +55,7 @@
                 webResource.WebResourceType = { Value: 4 }; //xml data
             }
 
-            webResource.Content = Base64.encode("<license>" + LicenseKey.value + "</license>");
+            webResource.Content = Base64.encode(LicenseKey.value);
             var jsonWebResource = window.JSON.stringify(webResource);
 
             $.ajax({
@@ -105,7 +105,7 @@
                     // e.g. data.d.results
                     if (data.d.results.length > 0) {
                         var license = Base64.decode(data.d.results[0].Content);
-                        LicenseKey.value = license.substring(9, license.length - 10);
+                        LicenseKey.value = license;
                         LicenseKeyId.value = data.d.results[0].WebResourceId;
                         Message.value = "License found.";
                     }

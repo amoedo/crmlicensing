@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByKe
 		{D57661BB-65E2-4832-8550-D02AC2AF29CB} = {D57661BB-65E2-4832-8550-D02AC2AF29CB}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.JavaScript", "CrmLicensing.JavaScript\CrmLicensing.JavaScript.csproj", "{C6A40707-8A5D-48EC-A105-ADD88EAED0BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByKey.JavaScript", "CrmLicensing.JavaScript\CrmLicensing.CrmPackageByKey.JavaScript.csproj", "{C6A40707-8A5D-48EC-A105-ADD88EAED0BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByKey.Plugins", "CrmLicensing.CrmPackageByKey.Plugins\CrmLicensing.CrmPackageByKey.Plugins.csproj", "{D57661BB-65E2-4832-8550-D02AC2AF29CB}"
 EndProject
@@ -30,12 +30,12 @@ Global
 		SccProjectUniqueName2 = CrmLicensing.CrmPackageByKey\\CrmLicensing.CrmPackageByKey.csproj
 		SccProjectName2 = CrmLicensing.CrmPackageByKey
 		SccLocalPath2 = CrmLicensing.CrmPackageByKey
-		SccProjectUniqueName3 = CrmLicensing.JavaScript\\CrmLicensing.JavaScript.csproj
-		SccProjectName3 = CrmLicensing.JavaScript
-		SccLocalPath3 = CrmLicensing.JavaScript
-		SccProjectUniqueName4 = CrmLicensing.CrmPackageByKey.Plugins\\CrmLicensing.CrmPackageByKey.Plugins.csproj
-		SccProjectName4 = CrmLicensing.CrmPackageByKey.Plugins
-		SccLocalPath4 = CrmLicensing.CrmPackageByKey.Plugins
+		SccProjectUniqueName3 = CrmLicensing.CrmPackageByKey.Plugins\\CrmLicensing.CrmPackageByKey.Plugins.csproj
+		SccProjectName3 = CrmLicensing.CrmPackageByKey.Plugins
+		SccLocalPath3 = CrmLicensing.CrmPackageByKey.Plugins
+		SccProjectUniqueName4 = CrmLicensing.JavaScript\\CrmLicensing.CrmPackageByKey.JavaScript.csproj
+		SccProjectName4 = CrmLicensing.JavaScript
+		SccLocalPath4 = CrmLicensing.JavaScript
 	EndGlobalSection
 	GlobalSection(CRMSolutionProperties) = preSolution
 		SolutionIsBoundToCRM = True

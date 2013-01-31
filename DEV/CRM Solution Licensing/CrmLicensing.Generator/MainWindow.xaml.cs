@@ -39,10 +39,20 @@ namespace CrmLicensing.Generator
 
         private void Button_Click_Generate(object sender, RoutedEventArgs e)
         {
-            
-            byte[] code = csp.SignData(System.Text.Encoding.UTF8.GetBytes(TextToSign.Text.ToCharArray(), 0, TextToSign.Text.Length), "SHA256");
 
-            LicenseKeyText.Text = Convert.ToBase64String(code);           
+            var payload = string.Format("{0}:{1}:{2}", 
+                TextOrgName.Text, 
+                (CheckTrial.IsChecked.Value ? "1" : "0"), 
+                (DateTrial.SelectedDate.HasValue ? DateTrial.SelectedDate.Value.ToString("dd/MM/yyyy") : "00/00/0000")
+                );
+
+            byte[] code = csp.SignData(System.Text.Encoding.UTF8.GetBytes(payload.ToCharArray(), 0, payload.Length), "SHA256");
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(string.Format("<license><payload>{0}</payload><signature>{1}</signature></license>",payload,Convert.ToBase64String(code)));
+
+            LicenseKeyText.Text = doc.InnerXml;           
         }
 
         private void Button_Click_LoadKey(object sender, RoutedEventArgs e)
@@ -68,11 +78,15 @@ namespace CrmLicensing.Generator
             var tempCsp = new RSACryptoServiceProvider();
             tempCsp.FromXmlString(PublicKey.Text);
 
+            var xmlLicense = new XmlDocument();
+            xmlLicense.LoadXml(LicenseKeyText.Text);
+            string payload = xmlLicense.GetElementsByTagName("payload")[0].InnerText;
+            string signature = xmlLicense.GetElementsByTagName("signature")[0].InnerText;
 
             if (tempCsp.VerifyData(
-                System.Text.Encoding.UTF8.GetBytes(TextToSign.Text.ToCharArray(), 0, TextToSign.Text.Length)
+                System.Text.Encoding.UTF8.GetBytes(payload.ToCharArray(), 0, payload.Length)
                 , "SHA256"
-                , Convert.FromBase64String(LicenseKeyText.Text)))
+                , Convert.FromBase64String(signature)))
             {
                 ResultText.Text = "Valid";
                 ResultText.Foreground = new SolidColorBrush(Colors.Green);

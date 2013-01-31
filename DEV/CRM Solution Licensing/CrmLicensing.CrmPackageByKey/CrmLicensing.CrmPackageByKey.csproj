@@ -104,6 +104,12 @@
       <Private>True</Private>
       <SilverlightApplication>False</SilverlightApplication>
     </ProjectReference>
+    <ProjectReference Include="..\CrmLicensing.JavaScript\CrmLicensing.CrmPackageByKey.JavaScript.csproj">
+      <Name>CrmLicensing.CrmPackageByKey.JavaScript</Name>
+      <Project>{c6a40707-8a5d-48ec-a105-add88eaed0bb}</Project>
+      <Private>True</Private>
+      <SilverlightApplication>False</SilverlightApplication>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\CRM\Microsoft.CrmDeveloperTools.12.targets" />

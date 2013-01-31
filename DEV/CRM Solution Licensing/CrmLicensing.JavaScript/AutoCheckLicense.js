@@ -35,14 +35,18 @@ CLBK.LicenseChecker =
             }
             return null;
         },
+        _checkOrgName: function (orgName)
+        {
+            return orgName == this._getContext().getOrgUniqueName();
+        },
         _doVerify: function (license, key) {
 
             try {
 
-                debugger;
-
-                var sMsg = this._getContext().getOrgUniqueName();
-                var hSig = license;
+                var licenseDoc = $.parseXML(license);
+                
+                var sMsg = licenseDoc.getElementsByTagName("payload")[0].childNodes[0].nodeValue
+                var hSig = licenseDoc.getElementsByTagName("signature")[0].childNodes[0].nodeValue;
 
                 var rsa = new RSAKey();
                 rsa.loadPublicKeyFromXml(key);
@@ -53,11 +57,37 @@ CLBK.LicenseChecker =
 
                 // display verification result
                 if (isValid) {
-                    //do nothing. 
-                    //Could be extended to check other items
+                    //Get parsts
+                    var components = sMsg.split(":");
+                    //Check Org Name
+                    if (!this._checkOrgName(components[0])) {
+                        alert("Not Valid License");
+                        window.document.body.innerHTML = "<h1>License organisation name missmatch</h1>";
+                    }
+                    else
+                    {
+                        //Check for trial
+                        if (components[1] == "1")
+                        {
+                            //Check expiry date
+                            var date = components[2].split("/");
+                            var expiry = new Date(date[2], date[1]-1, date[0]); //month is 0-11
+                            if (expiry < new Date())
+                            {
+                                try
+                                {
+                                    alert("Trial has expired");
+                                }
+                                catch (e) { }
+                                window.document.body.innerHTML = "<h1>Trial License expired</h1>";
+                            }
+
+                        }
+                    }
+
                 } else {
                     alert("Not Valid License");
-                    window.document.body.innerHTML = "<h1>License not valid</h1>";
+                    window.document.body.innerHTML = "<h1>License signature not valid</h1>";
                 }
             }
             catch (e) {
@@ -103,7 +133,7 @@ CLBK.LicenseChecker =
                     },
                     success: function (data, textStatus, XmlHttpRequest) {
                         //TODO
-                        CLBK.LicenseChecker.Validate(data.text);
+                        CLBK.LicenseChecker.Validate(data.xml);
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         window.document.body.innerHTML = "<h1>License not present</h1>";
