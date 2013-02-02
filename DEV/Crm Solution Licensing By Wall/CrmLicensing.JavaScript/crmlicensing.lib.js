@@ -18,8 +18,13 @@ CLBW.LicensedResource =
             return null;
         },
 
-        loadResource: function (solution, resource, filetype) {
+        // Function to inject the appropiate element to load a license resources
+        loadResource: function (solution, resource, filetype,avoidcached) {
             var orgparam = "?orgname=" + encodeURIComponent(this._getContext().getOrgUniqueName());
+            var dt = new Date();
+            if (avoidcached) orgparam += "&rand="+dt.getTime();
+            else orgparam += "&rand="+dt.getDate()+dt.getMonth();
+
             var filename = CLBW.BaseUrl + solution + "/" + resource + orgparam;
 
             if (filetype == "js") { //if filename is a external JavaScript file
@@ -35,7 +40,42 @@ CLBW.LicensedResource =
             }
             if (typeof fileref != "undefined")
                 document.getElementsByTagName("head")[0].appendChild(fileref)
-        }
+        },
 
+        // function to check whether the organization is licensed
+        _callLicenseServer: function (solution) {
+            try
+            {
+                this.loadResource(solution, CLBW.LicenseTagFile, "js",true);
+            }
+            catch (e) {                
+                this.callback(false,e.message);
+            }
+        },
+
+        // call the license checker
+        // Param: Solution = CRM solution name to check
+        // Param: Callback = Function to call back whit the result function (bool result, exception e)
+
+        checkLicense: function (solution, callback) {
+
+            this.callback = callback;
+            this._callLicenseServer(solution);
+
+        },
+
+        callback: function (licensed, error) {
+            if (!licensed)
+            {
+                try
+                {
+                    document.body.innerHTML ="<h1>Not Licensed</h1>";
+                    if (error) document.body.innerHTML +="<p>"+error+"</p>";
+                }
+                catch (e) {
+                    alert("License Not Valid "+ error);
+                }
+            }
+        }
     }
 

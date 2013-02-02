@@ -96,6 +96,7 @@ namespace CrmLicensing.LicenseWall.Controllers
         public ActionResult Delete(int id = 0)
         {
             CrmOrganization crmorganization = db.CrmOrganizations.Where(org => org.User.UserName == User.Identity.Name).FirstOrDefault(org => org.Id == id);
+            if (crmorganization==null)
             {
                 return HttpNotFound();
             }

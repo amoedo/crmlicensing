@@ -11,13 +11,13 @@ namespace CrmLicensing.CrmPackageByWall.Plugins.Licensing
 {
     class LicenseChecker
     {
-        internal static bool CheckLicense(IOrganizationService organizationService, string p)
+        internal static bool CheckLicense(IOrganizationService organizationService, string orgName)
         {
 
             try{
 
             WebClient client = new WebClient();
-            using (var s = client.OpenRead("http://crmlicensingdemo.azurewebsites.net/CrmSolutions/VatChecker/plugin.tag.js?orgname=ukcrmpta2"))
+            using (var s = client.OpenRead(string.Format("http://crmlicensingdemo.azurewebsites.net/CrmSolutions/VatChecker/license.tag.js?orgname={0}",orgName)))
             {
                 var sr = new StreamReader(s);
                 var r = sr.ReadToEnd();

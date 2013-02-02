@@ -12,6 +12,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.LicenseWall", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmLicensing.CrmPackageByWall.Plugins", "CrmLicensing.CrmPackageByWall.Plugins\CrmLicensing.CrmPackageByWall.Plugins.csproj", "{ABF76AF0-5F43-4D5F-9B02-31CAF04FAB12}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM Solution Packages", "CRM Solution Packages", "{4D76C988-0AAB-4F2E-987B-3BC5063B1BFA}"
+	ProjectSection(SolutionItems) = preProject
+		CRM Solution Packages\CRMLicensingByWall_1_0_0_0.zip = CRM Solution Packages\CRMLicensingByWall_1_0_0_0.zip
+		CRM Solution Packages\CRMLicensingByWall_1_0_0_0_managed.zip = CRM Solution Packages\CRMLicensingByWall_1_0_0_0_managed.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 5

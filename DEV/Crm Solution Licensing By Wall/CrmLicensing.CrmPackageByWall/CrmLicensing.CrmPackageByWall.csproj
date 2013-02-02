@@ -74,6 +74,11 @@
       <UniqueName>clbw_/html/CheckVatNumber.htm</UniqueName>
       <WebResourceType>WebPage</WebResourceType>
     </CRMWebResource>
+    <CRMWebResource Include="WebResources\Web Page %28HTML%29\ConfigurationPage.htm">
+      <DisplayName>ConfigurationPage</DisplayName>
+      <UniqueName>clbw_/html/ConfigurationPage.htm</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrmLicensing.CrmPackageByWall.Plugins\CrmLicensing.CrmPackageByWall.Plugins.csproj">

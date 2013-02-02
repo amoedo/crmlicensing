@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Cobnfiguration Page</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(233, 237, 241);
+            font-family: 'Segoe UI',Arial;
+        }
+
+        table {
+            margin: 5px;
+            width: 100%;
+        }
+
+        .label {
+            width: 343px;
+        }
+    </style>
+
+    <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="../Scripts/jquery_1.7.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/json2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.xdomain.ajax.js" type="text/javascript"></script>
+    <script src="../Scripts/crmlicensing.lib.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function CheckStatus() {
+            CLBW.LicensedResource.checkLicense("VatChecker",LicenseCallBack);
+        }
+
+        function LicenseCallBack(result, message) {
+
+            if (result) {
+                //There is license
+                var e = document.getElementById("Licensed");
+                e.style.display = "block";
+            }
+            else {
+                //No license
+                var e = document.getElementById("NotLicensed");
+                e.style.display = "block";
+            }
+
+            if (message) alert(message);
+        }
+
+    </script>
+
+</head>
+
+<body onload="CheckStatus();">
+    <table cellpadding="10">
+        <tr>
+            <td class="label">
+                <h1>License Details</h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">License Status:</td>
+            <td>
+                <p id="Licensed" style="color: #00CC00; display: none">Your CRM instance is licensed for this solution.</p>
+                <p id="NotLicensed" style="color: #CC0000; display: none">Your CRM instance is not licensed. Please get a trial or full license using the configuration. </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">
+                <a href="https://crmlicensingdemo.azurewebsites.net/CrmOrganization" target="_blank">License Configuration</a>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>
