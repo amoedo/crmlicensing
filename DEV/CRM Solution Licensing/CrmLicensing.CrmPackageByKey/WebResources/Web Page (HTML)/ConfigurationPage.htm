@@ -175,15 +175,15 @@
         <tr>
             <td class="label">License Key:</td>
             <td>
-                <input type="text" value="Loading..." name="LicenseKey" style="width: 100%" />
-                <input type="hidden" name="LicenseKeyId" />
+                <textarea name="LicenseKey" id="LicenseKey"style="width: 100%" rows="9" cols="">Loading...</textarea>                
+                <input type="hidden" name="LicenseKeyId" id="LicenseKeyId" />
             </td>
         </tr>
         <tr>
             <td class="label">
                 <input type="button" value="Save" onclick="SaveLicense();" /></td>
             <td>
-                <input type="text" value="" disabled="disabled" name="Message" style="border-style: none; width: 100%; background-color: rgb(233, 237, 241);" />
+                <input type="text" value="" disabled="disabled" name="Message" id="Message" style="border-style: none; width: 100%; background-color: rgb(233, 237, 241);" />
             </td>
         </tr>
     </table>
