@@ -107,7 +107,7 @@ CLBK.LicenseChecker =
                     beforeSend: function (XMLHttpRequest) {
                     },
                     success: function (data, textStatus, XmlHttpRequest) {
-                        CLBK.LicenseChecker._doVerify(license, data.xml);
+                        CLBK.LicenseChecker._doVerify(license, XmlHttpRequest.responseText);
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         window.document.body.innerHTML = "<h1>License validation error</h1>";
@@ -132,8 +132,7 @@ CLBK.LicenseChecker =
                     beforeSend: function (XMLHttpRequest) {
                     },
                     success: function (data, textStatus, XmlHttpRequest) {
-                        //TODO
-                        CLBK.LicenseChecker.Validate(data.xml);
+                        CLBK.LicenseChecker.Validate(XmlHttpRequest.responseText);
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         window.document.body.innerHTML = "<h1>License not present</h1>";
