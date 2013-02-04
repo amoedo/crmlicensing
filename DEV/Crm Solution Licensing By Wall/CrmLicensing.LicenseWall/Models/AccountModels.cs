@@ -97,6 +97,10 @@ namespace CrmLicensing.LicenseWall.Models
         public string ProviderUserId { get; set; }
     }
 
+
+    /// <summary>
+    /// Contains the CRM Organization info
+    /// </summary>
     [Table("CrmOrganization")]
     public class CrmOrganization
     {

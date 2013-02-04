@@ -245,7 +245,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="CrmSolutions\VatChecker\SolutionJavaScript.js" />
     <Content Include="CrmSolutions\VatChecker\vatchecker.lib.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

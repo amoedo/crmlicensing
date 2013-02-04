@@ -34,12 +34,14 @@ namespace CrmLicensing.LicenseWall.Licensing
         {
             var httpApp = (HttpApplication)sender;
             var context = httpApp.Context;
+
+            //Request trying to access CrmSolutions contents
             if (context.Request.Path.Contains("CrmSolutions"))
             {
-                //validate
+                //Find the orgname on the request
                 if (context.Request.QueryString["orgname"] != null)
                 {
-                    
+                    //Validate the orgname
                     var orgname = (string)context.Request.QueryString["orgname"];
                     var a = db.CrmOrganizations.Where( org => org.OrganizationName == orgname).FirstOrDefault();
                     if (a != null)
@@ -48,11 +50,13 @@ namespace CrmLicensing.LicenseWall.Licensing
                     }
                     else
                     {
+                        //Not valid
                         context.Response.Redirect("/Content/NotLicensed.js", true);
                     }
                 }
                 else
                 {
+                    // Not valid
                     context.Response.Redirect("/Content/NotLicensed.js", true);
                 }
             }
