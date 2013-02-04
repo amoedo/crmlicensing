@@ -4,7 +4,7 @@
 // potential for functions to be overwritten due to a duplicate name when the library is loaded.
 CLBK.LicenseChecker =
     {
-        _prefix: "clbk_",
+        _prefix: "clbk_", //NOTE: Change to your prefix
         _getServerUrl: function () {
             var serverUrl = "";
             if (typeof GetGlobalContext == "function") {
@@ -39,6 +39,7 @@ CLBK.LicenseChecker =
         {
             return orgName == this._getContext().getOrgUniqueName();
         },
+        // Verifies the signature, the organisation match and the trial date if applies
         _doVerify: function (license, key) {
 
             try {
@@ -55,7 +56,7 @@ CLBK.LicenseChecker =
 
                 var isValid = rsa.verifyString(sMsg, hSig);
 
-                // display verification result
+                // Signature of the license is valid, continue with checks
                 if (isValid) {
                     //Get parsts
                     var components = sMsg.split(":");
@@ -95,6 +96,7 @@ CLBK.LicenseChecker =
                 window.document.body.innerHTML = "<h1>License not valid</h1>" + "<p>" + e.message + "</p";
             }
         },
+        //Downloads the public key and calls internal verification with the license and key
         Validate: function (license) {
             try {
                 var url = this._getServerUrl() + "/WebResources/" + this._prefix + "/publickey.xml";
@@ -120,6 +122,7 @@ CLBK.LicenseChecker =
             }
 
         },
+        //Downloads the license file and calls validate
         Check: function () {
             try {
                 var url = this._getServerUrl() + "/WebResources/" + this._prefix + "/" + this._getContext().getOrgUniqueName() + ".lic";

@@ -26,17 +26,30 @@ namespace CrmLicensing.Generator
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        /// <summary>
+        /// File name for the license keys
+        /// </summary>
         private string fileName = "keys.xml";
+
+        
         private string key;
+        
+        /// <summary>
+        /// RSA Crypto Service Provider to use for the signing and validation
+        /// </summary>
         private RSACryptoServiceProvider csp;
-        //private ECDsaCng csp;
+        
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Generates a License Key following the structure CrmOrg:[0,1 Is Trial?]:Trial End Date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_Generate(object sender, RoutedEventArgs e)
         {
 
@@ -54,9 +67,15 @@ namespace CrmLicensing.Generator
 
             LicenseKeyText.Text = doc.InnerXml;           
         }
-
+        
+        /// <summary>
+        /// Checks if a key file is present. Otherwise generates a new pair and saves it.
+        /// Initialises the Crypto Service Provider using the keys.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_LoadKey(object sender, RoutedEventArgs e)
-        {
+        {            
             if (File.Exists(fileName))
             {
                 string Key = File.ReadAllText(fileName);
@@ -73,6 +92,11 @@ namespace CrmLicensing.Generator
             PublicKey.Text = csp.ToXmlString(false);
         }
 
+        /// <summary>
+        /// Validates the signature of a License
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_Validate(object sender, RoutedEventArgs e)
         {
             var tempCsp = new RSACryptoServiceProvider();
@@ -101,25 +125,4 @@ namespace CrmLicensing.Generator
 
     }
 
-    //public static class Extensions
-    //{
-    //    public static byte[] SignData(this ECDsa csp, byte[] secret, string algorithm)
-    //    {
-    //        var hash = HashAlgorithm.Create(algorithm);
-    //        var hashedSecret = hash.ComputeHash(secret);
-
-    //        return csp.SignHash(hashedSecret);
-
-    //    }
-
-    //    public static bool VerifyData(this ECDsa csp, byte[] secret, string algorithm, byte[] signature)
-    //    {
-    //        var hash = HashAlgorithm.Create(algorithm);
-    //        var hashedSecret = hash.ComputeHash(secret);
-
-    //        return csp.VerifyHash(hashedSecret,signature);
-
-    //    }
-
-    //}
 }
