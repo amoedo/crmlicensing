@@ -58,7 +58,7 @@ CLBK.LicenseChecker =
 
                 // Signature of the license is valid, continue with checks
                 if (isValid) {
-                    //Get parsts
+                    //Get parts
                     var components = sMsg.split(":");
                     //Check Org Name
                     if (!this._checkOrgName(components[0])) {
